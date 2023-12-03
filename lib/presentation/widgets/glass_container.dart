@@ -66,14 +66,12 @@ class GlassContainer extends StatelessWidget {
                     const SizedBox(height: 50.0),
                     ElevatedButton(
                       onPressed: () {
-                        // Add your sign-in logic here
                       },
                       child: const Text('Sign In'),
                     ),
                     const SizedBox(height: 16.0),
                     TextButton(
                       onPressed: () {
-                        // Add your "Are you a new user?" logic here
                       },
                       child: const Text(
                         'Are you a new user? Sign Up',
