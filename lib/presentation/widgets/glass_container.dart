@@ -49,30 +49,44 @@ class GlassContainer extends StatelessWidget {
                   children: [
                     const Text(
                       'Welcome',
-                      style:  TextStyle(
+                      style: TextStyle(
                         color: Colors.white,
                         fontSize: 24.0,
                         fontWeight: FontWeight.bold,
                       ),
                     ),
-                    const SizedBox(height: 139.0),
-                    const TextField(
+                    const SizedBox(height: 100.0),
+                    TextField(
+                      style: const TextStyle(color: Colors.white),
                       decoration: InputDecoration(
+                        filled: true,
+                        fillColor: Colors.white.withOpacity(0.2),
                         hintText: 'Phone',
-                        hintStyle: TextStyle(color: Colors.white),
+                        hintStyle:
+                            TextStyle(color: Colors.white.withOpacity(0.5)),
+                        border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(14),
+                          borderSide: BorderSide.none,
+                        ),
                       ),
-                      style: TextStyle(color: Colors.white),
                     ),
                     const SizedBox(height: 50.0),
                     ElevatedButton(
-                      onPressed: () {
-                      },
+                      onPressed: () {},
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: Colors.white.withOpacity(0.2),
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(14),
+                        ),
+                        side: BorderSide(
+                          color: Colors.white.withOpacity(0.2),
+                        ),
+                      ),
                       child: const Text('Sign In'),
                     ),
                     const SizedBox(height: 16.0),
                     TextButton(
-                      onPressed: () {
-                      },
+                      onPressed: () {},
                       child: const Text(
                         'Are you a new user? Sign Up',
                         style: TextStyle(color: Colors.white),
