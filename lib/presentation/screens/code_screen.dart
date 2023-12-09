@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:login_app/presentation/screens/code_screen.dart';
 import 'package:login_app/presentation/theme/app_pngs.dart';
 import 'package:login_app/presentation/widgets/glass_container.dart';
 
-class LoginScreen extends StatelessWidget {
-  const LoginScreen({super.key});
+class CodeScreen extends StatelessWidget {
+  const CodeScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -43,16 +42,9 @@ class LoginScreen extends StatelessWidget {
               bottom: 170,
               top: 190,
               child: GlassContainer(
-                hintText: 'Phone',
+                hintText: 'Code',
                 btnTitle: 'Sign In',
-                onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => const CodeScreen(),
-                    ),
-                  );
-                },
+                onPressed: () {},
               ),
             ),
           ],

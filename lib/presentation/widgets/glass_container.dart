@@ -1,25 +1,24 @@
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
-import 'package:login_app/presentation/theme/app_pngs.dart';
 
 class GlassContainer extends StatelessWidget {
   const GlassContainer({
     Key? key,
-    required this.width,
-    required this.height,
+    required this.btnTitle,
+    required this.hintText,
+    required this.onPressed
   }) : super(key: key);
 
-  final double width;
-  final double height;
+  final String btnTitle;
+  final String hintText;
+  final Function()? onPressed;
 
   @override
   Widget build(BuildContext context) {
     return ClipRRect(
       borderRadius: BorderRadius.circular(40),
       child: Container(
-        width: width,
-        height: height,
         color: Colors.transparent,
         child: Stack(
           children: [
@@ -28,6 +27,9 @@ class GlassContainer extends StatelessWidget {
               child: Container(),
             ),
             Container(
+              padding: const EdgeInsets.all(1),
+              width: 428,
+              height: 565,
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(40),
                 border: Border.all(
@@ -56,37 +58,51 @@ class GlassContainer extends StatelessWidget {
                       ),
                     ),
                     const SizedBox(height: 100.0),
-                    TextField(
-                      style: const TextStyle(color: Colors.white),
-                      decoration: InputDecoration(
-                        filled: true,
-                        fillColor: Colors.white.withOpacity(0.2),
-                        hintText: 'Phone',
-                        hintStyle:
-                            TextStyle(color: Colors.white.withOpacity(0.5)),
-                        border: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(14),
-                          borderSide: BorderSide.none,
+                    Container(
+                      width: 309,
+                      height: 57,
+                      padding: const EdgeInsets.symmetric(horizontal: 16),
+                      decoration: BoxDecoration(
+                        color: Colors.white.withOpacity(0.2),
+                        borderRadius: BorderRadius.circular(14),
+                      ),
+                      child:  TextField(
+                        decoration: InputDecoration(
+                          border: InputBorder.none,
+                          hintText: hintText,
+                          hintStyle:
+                              const TextStyle(color: Colors.white),
                         ),
                       ),
                     ),
                     const SizedBox(height: 50.0),
-                    ElevatedButton(
-                      onPressed: () {},
-                      style: ElevatedButton.styleFrom(
-                        backgroundColor: Colors.white.withOpacity(0.2),
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(14),
+                    Container(
+                      width: 121,
+                      height: 57,
+                      decoration: BoxDecoration(
+                        color: Colors.white.withOpacity(0.2),
+                        borderRadius: BorderRadius.circular(14),
+                      ),
+                      child: ElevatedButton(
+                        onPressed: onPressed,
+                        style: ElevatedButton.styleFrom(
+                          backgroundColor: Colors.transparent,
+                          elevation: 0,
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(14),
+                          ),
                         ),
-                        side: BorderSide(
-                          color: Colors.white.withOpacity(0.2),
+                        child:  Text(
+                          btnTitle,
+                          style: const TextStyle(
+                            color: Colors.white,
+                          ),
                         ),
                       ),
-                      child: const Text('Sign In'),
                     ),
                     const SizedBox(height: 16.0),
                     TextButton(
-                      onPressed: () {},
+                      onPressed: onPressed,
                       child: const Text(
                         'Are you a new user? Sign Up',
                         style: TextStyle(color: Colors.white),
